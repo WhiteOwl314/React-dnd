@@ -1,49 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Item from "./Item";
-import Target from "./Target";
+import Knight from "./Knight";
+import Square from "./Square";
+import {createGlobalStyle} from "styled-components";
+
+
+const GlobalStyles = createGlobalStyle`
+    html, body, #root {
+        width: 100%;
+        height: 100%;
+    }
+    html{
+        padding: 10px;
+    }
+`;
 
 function App() {
 
-  const state = {
-    items: [
-      {id: 1, name: 'Item 1' },
-      {id: 2, name: 'Item 2' },
-      {id: 3, name: 'Item 3' },
-      {id: 4, name: 'Item 4' },
-    ],
-  };
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <div className="App-intro">
-        <div className="app-container">
-          <div className="item-container">
-            {
-              state.items.map((item,index) => (
-                  <Item key={item.id} item={item}/>
-              ))
-            }
-          </div>
-          <Target/>
-        </div>
-      </div>
-    </div>
+      <>
+          <GlobalStyles/>
+          <Square black>
+              <Knight/>
+          </Square>
+      </>
   );
 }
 
